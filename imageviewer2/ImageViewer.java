@@ -30,6 +30,8 @@ public class ImageViewer
     private ImagePanel imagePanel;
     private JLabel filenameLabel;
     private JLabel statusLabel;
+    private JButton smallerButton;
+    private JButton largerButton;
     private OFImage currentImage;
     
     private List<Filter> filters;
@@ -186,12 +188,14 @@ public class ImageViewer
         statusLabel = new JLabel(VERSION);
         contentPane.add(statusLabel, BorderLayout.SOUTH);
 		
-		JPanel toolbar = new JPanel;
+		JPanel toolbar = new JPanel();
+		
 		smallerButton = new JButton("Smaller");
 		toolbar.add(smallerButton);
 		
 		largerButton = new JButton("Larger");
 		toolbar.add(largerButton);
+		
 		contentPane.add(toolbar, BorderLayout.WEST);
         
         // building is done - arrange the components and show        
