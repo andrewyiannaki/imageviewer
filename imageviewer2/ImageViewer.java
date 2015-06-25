@@ -188,15 +188,30 @@ public class ImageViewer
         statusLabel = new JLabel(VERSION);
         contentPane.add(statusLabel, BorderLayout.SOUTH);
 		
-		JPanel toolbar = new JPanel();
+        //create the toolbar with the buttons
+		JPanel toolbar = new JPanel(new GridLayout(0, 1));
 		
 		smallerButton = new JButton("Smaller");
+		smallerButton.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        makeSmaller();
+		      }
+		  });
 		toolbar.add(smallerButton);
 		
 		largerButton = new JButton("Larger");
+		largerButton.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        makeLarger();
+		      }
+		  });
 		toolbar.add(largerButton);
 		
-		contentPane.add(toolbar, BorderLayout.WEST);
+		//add toolbar into a new panel with a flow layout for spacing
+		JPanel flow = new JPanel();
+		flow.add(toolbar);
+		
+		contentPane.add(flow, BorderLayout.WEST);
         
         // building is done - arrange the components and show        
         showFilename(null);
@@ -275,5 +290,15 @@ public class ImageViewer
                            });
         menu.add(item);
 
+    }
+    
+    private void makeLarger()
+    {
+        System.out.println("make image larger");
+    }
+    
+    private void makeSmaller()
+    {
+        System.out.println("make image smaller");
     }
 }
